@@ -14,6 +14,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.omeriyioz.github_android.features.SearchInputBox
 
 @Composable
 fun SearchUserScreen(
@@ -23,6 +24,8 @@ fun SearchUserScreen(
     val userDetailResponseDTO by viewModel2.userDetailResponseDTO.observeAsState()
 
     Column(modifier = Modifier.fillMaxSize()) {
+
+        SearchInputBox(onItemComplete = viewModel2::searchUsers)
 
         Text("List of Users(${userResponseDTO?.total_count}) : ")
         Divider(color = Color.Red)

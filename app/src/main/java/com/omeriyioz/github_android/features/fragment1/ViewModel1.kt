@@ -20,14 +20,11 @@ class ViewModel1 @Inject constructor(
     val repoDTOList: LiveData<List<RepoDTO>>
         get() = _repoDTOList
 
-    init {
-        getRepoDTOList()
-    }
 
-    private fun getRepoDTOList() {
+    fun getRepoDTOList(username: String) {
         viewModelScope.launch {
             try {
-                _repoDTOList.value = repository.getRepoDTOList("oiyio")
+                _repoDTOList.value = repository.getRepoDTOList(username)
                 Log.d("omertest", "size :" + _repoDTOList.value!!.size.toString())
             } catch (e: Exception) {
                 Log.d("omertest", "Exception : $e")

@@ -25,15 +25,11 @@ class ViewModel2 @Inject constructor(
     val userDetailResponseDTO: LiveData<UserDetailResponseDTO>
         get() = _userDetailResponseDTO
 
-    init {
-        searchUsers()
-    }
-
-    private fun searchUsers() {
+    fun searchUsers(username: String) {
 
         viewModelScope.launch {
             try {
-                _userResponseDTO.value = repository.searchUsers("oiyio")
+                _userResponseDTO.value = repository.searchUsers(username)
                 Log.d("omertest", "size :" + _userResponseDTO.value!!.total_count)
             } catch (exception: Exception) {
                 Log.d("omertest", "searchUsers - exception ${exception.message}")
@@ -42,7 +38,7 @@ class ViewModel2 @Inject constructor(
 
         viewModelScope.launch {
             try {
-                _userDetailResponseDTO.value = repository.getUserDetail("oiyio")
+                _userDetailResponseDTO.value = repository.getUserDetail(username)
                 Log.d("omertest", "size :" + _userDetailResponseDTO.value!!.avatar_url)
             } catch (exception: Exception) {
                 Log.d("omertest", "searchUsers - exception ${exception.message}")

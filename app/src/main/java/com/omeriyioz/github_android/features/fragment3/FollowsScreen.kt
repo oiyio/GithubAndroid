@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.omeriyioz.github_android.features.SearchInputBox
 
 @Composable
 fun FollowsScreen(
@@ -24,7 +25,10 @@ fun FollowsScreen(
     val followerList by viewModel3.followerList.observeAsState(initial = emptyList())
     val followingList by viewModel3.followingList.observeAsState(initial = emptyList())
 
+
     Column(modifier = Modifier.fillMaxSize()) {
+
+        SearchInputBox(onItemComplete = viewModel3::getFollows)
 
         Text("List of Followers(${followerList.size} total) : ")
         Divider(color = Color.Red)

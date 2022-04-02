@@ -14,6 +14,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.omeriyioz.github_android.features.SearchInputBox
 
 @Composable
 fun RepoScreen(
@@ -22,6 +23,8 @@ fun RepoScreen(
     val repoDTOListState by viewModel1.repoDTOList.observeAsState(initial = emptyList())
 
     Column(modifier = Modifier.fillMaxSize()) {
+
+        SearchInputBox(onItemComplete = viewModel1::getRepoDTOList)
 
         Text("List of Repositories(${repoDTOListState.size} total) : ")
         Divider(color = Color.Red)

@@ -24,14 +24,10 @@ class ViewModel3 @Inject constructor(
     val followingList: LiveData<List<User>>
         get() = _followingList
 
-    init {
-        getFollows()
-    }
-
-    private fun getFollows() {
+    fun getFollows(username: String) {
         viewModelScope.launch {
             try {
-                _followerList.value = repository.getFollowers("oiyio")
+                _followerList.value = repository.getFollowers(username = username)
                 Log.d("omertest", "size :" + _followingList.value!!.size.toString())
             } catch (exception: Exception) {
                 Log.d("omertest", "getFollowers - exception ${exception.message}")
@@ -40,7 +36,7 @@ class ViewModel3 @Inject constructor(
 
         viewModelScope.launch {
             try {
-                _followingList.value = repository.getFollowing("oiyio")
+                _followingList.value = repository.getFollowing(username = username)
                 Log.d("omertest", "size :" + _followingList.value!!.size.toString())
             } catch (exception: Exception) {
                 Log.d("omertest", "getFollowing - exception ${exception.message}")
