@@ -14,11 +14,10 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun SearchUserScreen(
-    viewModel2: ViewModel2 = hiltViewModel()
+    viewModel2: ViewModel2
 ) {
     val userResponseDTO by viewModel2.userResponseDTO.observeAsState()
     val userDetailResponseDTO by viewModel2.userDetailResponseDTO.observeAsState()

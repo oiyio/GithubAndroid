@@ -4,7 +4,7 @@ import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class GithubClientApp : Application() {
+class GithubAndroidApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -12,6 +12,6 @@ class GithubClientApp : Application() {
     }
 
     companion object {
-        lateinit var instance: GithubClientApp
+        lateinit var instance: GithubAndroidApp
     }
 }

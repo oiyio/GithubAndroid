@@ -6,11 +6,14 @@ import androidx.compose.material.icons.filled.FollowTheSigns
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.omeriyioz.github_android.features.fragment1.RepoScreen
+import com.omeriyioz.github_android.features.fragment1.ViewModel1
 import com.omeriyioz.github_android.features.fragment2.SearchUserScreen
+import com.omeriyioz.github_android.features.fragment2.ViewModel2
 import com.omeriyioz.github_android.features.fragment3.FollowsScreen
 
 @Composable
@@ -20,10 +23,12 @@ fun BottomNavGraph(navController: NavHostController) {
         startDestination = BottomBarItem.Repo.route
     ) {
         composable(route = BottomBarItem.Repo.route) {
-            RepoScreen()
+            val viewModel1 = hiltViewModel<ViewModel1>()
+            RepoScreen(viewModel1)
         }
         composable(route = BottomBarItem.User.route) {
-            SearchUserScreen()
+            val viewModel2 = hiltViewModel<ViewModel2>()
+            SearchUserScreen(viewModel2)
         }
         composable(route = BottomBarItem.Settings.route) {
             FollowsScreen()
