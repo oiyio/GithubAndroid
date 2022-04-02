@@ -15,6 +15,8 @@ fun DependencyHandler.composeDependencies() {
 
     implementation("androidx.navigation:navigation-compose:2.4.1")
 
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")!!.because("i wannna use hiltViewModel()")
+
     // because("i wannna use observeAsState()")
     implementation("androidx.compose.runtime:runtime-livedata:${Versions.composeVersion}")
 

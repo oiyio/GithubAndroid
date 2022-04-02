@@ -14,11 +14,11 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun RepoScreen(
-    viewModel1: ViewModel1 = viewModel()
+    viewModel1: ViewModel1 = hiltViewModel()
 ) {
     val repoDTOListState by viewModel1.repoDTOList.observeAsState(initial = emptyList())
 
@@ -42,10 +42,8 @@ fun RepoScreen(
 
                     Divider(color = Color.Black)
                     Spacer(modifier = Modifier.height(8.dp))
-
                 }
             }
         )
-
     }
 }

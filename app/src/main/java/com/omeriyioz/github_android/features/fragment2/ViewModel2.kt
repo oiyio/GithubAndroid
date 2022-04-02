@@ -40,7 +40,6 @@ class ViewModel2 @Inject constructor(
             }
         }
 
-
         viewModelScope.launch {
             try {
                 _userDetailResponseDTO.value = repository.getUserDetail("oiyio")

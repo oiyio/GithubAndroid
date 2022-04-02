@@ -14,18 +14,18 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun SearchUserScreen(
-    viewModel2: ViewModel2 = viewModel()
+    viewModel2: ViewModel2 = hiltViewModel()
 ) {
     val userResponseDTO by viewModel2.userResponseDTO.observeAsState()
     val userDetailResponseDTO by viewModel2.userDetailResponseDTO.observeAsState()
 
     Column(modifier = Modifier.fillMaxSize()) {
 
-        Text("List of Users(${userResponseDTO?.total_count} : ")
+        Text("List of Users(${userResponseDTO?.total_count}) : ")
         Divider(color = Color.Red)
 
         userResponseDTO?.items?.let { userList ->
@@ -40,7 +40,6 @@ fun SearchUserScreen(
 
                         Divider(color = Color.Black)
                         Spacer(modifier = Modifier.height(8.dp))
-
                     }
                 }
             )
@@ -62,6 +61,5 @@ fun SearchUserScreen(
             Divider(color = Color.Black)
             Spacer(modifier = Modifier.height(8.dp))
         }
-
     }
 }

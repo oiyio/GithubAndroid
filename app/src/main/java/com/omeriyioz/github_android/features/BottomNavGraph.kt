@@ -1,0 +1,56 @@
+package com.omeriyioz.github_android.features
+
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Archive
+import androidx.compose.material.icons.filled.FollowTheSigns
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import com.omeriyioz.github_android.features.fragment1.RepoScreen
+import com.omeriyioz.github_android.features.fragment2.SearchUserScreen
+import com.omeriyioz.github_android.features.fragment3.FollowsScreen
+
+@Composable
+fun BottomNavGraph(navController: NavHostController) {
+    NavHost(
+        navController = navController,
+        startDestination = BottomBarItem.Repo.route
+    ) {
+        composable(route = BottomBarItem.Repo.route) {
+            RepoScreen()
+        }
+        composable(route = BottomBarItem.User.route) {
+            SearchUserScreen()
+        }
+        composable(route = BottomBarItem.Settings.route) {
+            FollowsScreen()
+        }
+    }
+}
+
+sealed class BottomBarItem(
+    val route: String,
+    val title: String,
+    val icon: ImageVector
+) {
+    object Repo : BottomBarItem(
+        route = "repo",
+        title = "Repo",
+        icon = Icons.Default.Archive
+    )
+
+    object User : BottomBarItem(
+        route = "user",
+        title = "User",
+        icon = Icons.Default.Person
+    )
+
+    object Settings : BottomBarItem(
+        route = "follow",
+        title = "Follow",
+        icon = Icons.Default.FollowTheSigns
+    )
+}

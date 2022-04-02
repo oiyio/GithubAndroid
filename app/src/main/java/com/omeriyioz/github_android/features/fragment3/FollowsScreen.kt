@@ -15,11 +15,11 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun FollowsScreen(
-    viewModel3: ViewModel3 = viewModel()
+    viewModel3: ViewModel3 = hiltViewModel()
 ) {
     val followerList by viewModel3.followerList.observeAsState(initial = emptyList())
     val followingList by viewModel3.followingList.observeAsState(initial = emptyList())
@@ -29,9 +29,10 @@ fun FollowsScreen(
         Text("List of Followers(${followerList.size} total) : ")
         Divider(color = Color.Red)
 
-        LazyColumn(modifier = Modifier
-            .height(250.dp)
-            .fillMaxWidth(),
+        LazyColumn(
+            modifier = Modifier
+                .height(250.dp)
+                .fillMaxWidth(),
             content = {
                 items(followerList) { follower ->
                     Text(
@@ -41,20 +42,18 @@ fun FollowsScreen(
                     )
                     Divider(color = Color.Black)
                     Spacer(modifier = Modifier.height(8.dp))
-
                 }
             }
         )
 
-
         Spacer(modifier = Modifier.height(18.dp))
-
 
         Text("List of Followings(${followingList.size} total) : ")
         Divider(color = Color.Red)
-        LazyColumn(modifier = Modifier
-            .height(250.dp)
-            .fillMaxWidth(),
+        LazyColumn(
+            modifier = Modifier
+                .height(250.dp)
+                .fillMaxWidth(),
             content = {
                 items(followingList) { following ->
                     Text(
@@ -64,7 +63,6 @@ fun FollowsScreen(
                     )
                     Divider(color = Color.Black)
                     Spacer(modifier = Modifier.height(8.dp))
-
                 }
             }
         )
