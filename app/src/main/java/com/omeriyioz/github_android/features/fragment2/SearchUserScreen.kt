@@ -14,6 +14,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.omeriyioz.github_android.features.centerTextHorizontallyModifier
 
 @Composable
 fun SearchUserScreen(
@@ -26,7 +27,10 @@ fun SearchUserScreen(
 
     Column(modifier = Modifier.fillMaxSize()) {
 
-        Text("List of Users(${userResponseDTO?.total_count}) : ")
+        Text(
+            text = "List of Users(${userResponseDTO?.total_count}) : ",
+            modifier = centerTextHorizontallyModifier
+        )
         Divider(color = Color.Red)
 
         userResponseDTO?.items?.let { userList ->
@@ -50,7 +54,7 @@ fun SearchUserScreen(
         Spacer(modifier = Modifier.height(18.dp))
 
         // user detail below :
-        Text("Details of User oiyio: ")
+        Text(text = "Details of User oiyio: ", modifier = centerTextHorizontallyModifier)
         Divider(color = Color.Red)
         userDetailResponseDTO?.let {
             Text(

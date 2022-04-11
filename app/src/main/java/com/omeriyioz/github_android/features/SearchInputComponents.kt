@@ -1,8 +1,11 @@
 package com.omeriyioz.github_android.features
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -20,6 +23,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+
+val centerTextHorizontallyModifier = Modifier
+    .fillMaxWidth()
+    .wrapContentWidth(Alignment.CenterHorizontally) // default parameter is already Alignment.CenterHorizontally, no need to write it.
+    .background(Color.Yellow)
 
 @Composable
 fun SearchInputBox(onItemComplete: (String) -> Unit) {

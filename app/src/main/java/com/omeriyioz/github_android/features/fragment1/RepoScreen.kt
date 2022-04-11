@@ -14,6 +14,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.omeriyioz.github_android.features.centerTextHorizontallyModifier
 
 @Composable
 fun RepoScreen(
@@ -25,9 +26,10 @@ fun RepoScreen(
 
     Column(modifier = Modifier.fillMaxSize()) {
 
-        // SearchInputBox(onItemComplete = viewModel1::getRepoDTOList)
-
-        Text("List of Repositories(${repoDTOListState.size} total) : ")
+        Text(
+            text = "List of Repositories(${repoDTOListState.size} total) : ",
+            modifier = centerTextHorizontallyModifier
+        )
         Divider(color = Color.Red)
 
         LazyColumn(

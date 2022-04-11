@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.omeriyioz.github_android.features.centerTextHorizontallyModifier
 
 @Composable
 fun FollowsScreen(
@@ -28,7 +29,10 @@ fun FollowsScreen(
 
     Column(modifier = Modifier.fillMaxSize()) {
 
-        Text("List of Followers(${followerList.size} total) : ")
+        Text(
+            text = "List of Followers(${followerList.size} total) : ",
+            modifier = centerTextHorizontallyModifier
+        )
         Divider(color = Color.Red)
 
         LazyColumn(
