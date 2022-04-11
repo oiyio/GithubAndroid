@@ -42,7 +42,6 @@ fun SearchInputBox(onItemComplete: (String) -> Unit) {
             SearchEditButton(
                 onClick = {
                     onItemComplete(text) // send onItemComplete event up
-                    setText("") // clear the internal text
                 },
                 text = "Search",
                 modifier = Modifier.align(Alignment.CenterVertically),

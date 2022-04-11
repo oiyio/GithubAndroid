@@ -17,21 +17,21 @@ import com.omeriyioz.github_android.features.fragment2.ViewModel2
 import com.omeriyioz.github_android.features.fragment3.FollowsScreen
 
 @Composable
-fun BottomNavGraph(navController: NavHostController) {
+fun BottomNavGraph(navController: NavHostController, searchedUsername: String) {
     NavHost(
         navController = navController,
         startDestination = BottomBarItem.Repo.route
     ) {
         composable(route = BottomBarItem.Repo.route) {
             val viewModel1 = hiltViewModel<ViewModel1>()
-            RepoScreen(viewModel1)
+            RepoScreen(viewModel1, searchedUsername)
         }
         composable(route = BottomBarItem.User.route) {
             val viewModel2 = hiltViewModel<ViewModel2>()
-            SearchUserScreen(viewModel2)
+            SearchUserScreen(viewModel2, searchedUsername)
         }
         composable(route = BottomBarItem.Settings.route) {
-            FollowsScreen()
+            FollowsScreen(searchedUsername = searchedUsername)
         }
     }
 }
