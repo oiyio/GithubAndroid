@@ -1,6 +1,7 @@
 package com.omeriyioz.data.database
 
 import androidx.lifecycle.LiveData
+import com.omeriyioz.data.database.models.RepoSearch
 import com.omeriyioz.data.database.models.UserDetail
 import javax.inject.Inject
 
@@ -20,5 +21,9 @@ class LocalDataSource @Inject constructor(
 
     suspend fun deleteUserDetail(userDetail: UserDetail) {
         githubDao.deleteUserDetail(userDetail)
+    }
+
+    suspend fun insertRepoSearchToDb(repoSearch: RepoSearch) {
+        githubDao.insertRepoSearchToDb(repoSearch)
     }
 }

@@ -29,6 +29,7 @@ class ViewModel2 @Inject constructor(
 
         viewModelScope.launch {
             try {
+                repository.getRepoSearch()
                 _userResponseDTO.value = repository.searchUsers(username)
                 Log.d("omertest", "size :" + _userResponseDTO.value!!.total_count)
             } catch (exception: Exception) {

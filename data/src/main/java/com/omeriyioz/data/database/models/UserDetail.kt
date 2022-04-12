@@ -9,8 +9,8 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @Entity(tableName = "table_userdetail")
 data class UserDetail(
-    @PrimaryKey
-    val id: Int,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
     @ColumnInfo(name = "login")
     val login: String,
     @ColumnInfo(name = "name")

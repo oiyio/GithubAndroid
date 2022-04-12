@@ -74,7 +74,7 @@ dependencies {
 
     // Glide
     implementation("com.github.bumptech.glide:glide:${Versions.glideVersion}")
-    annotationProcessor("com.github.bumptech.glide:compiler:${Versions.glideVersion}")
+    kapt("com.github.bumptech.glide:compiler:${Versions.glideVersion}")
 
 }
 

@@ -6,6 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.omeriyioz.data.database.models.RepoSearch
 import com.omeriyioz.data.database.models.UserDetail
 
 @Dao
@@ -22,4 +23,9 @@ interface GithubDao {
 
     @Delete
     suspend fun deleteUserDetail(userDetail: UserDetail)
+
+
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertRepoSearchToDb(repoSearch: RepoSearch)
 }
