@@ -22,7 +22,7 @@ class DaoModule {
         return Room.databaseBuilder(
             context.applicationContext,
             GithubDatabase::class.java,
-            "github_database"
+            "github_database.db"
         )
             .fallbackToDestructiveMigration()
             .build()

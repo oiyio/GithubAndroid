@@ -28,7 +28,7 @@ class ViewModel1 @Inject constructor(
                 repository.saveRepoSearch(username, _repoDTOList.value!!)
 
 
-                Log.d("omertest", "size :" + _repoDTOList.value!!.size.toString())
+                Log.d("omertest", "size3 :" + _repoDTOList.value!!.size.toString())
             } catch (e: Exception) {
                 Log.d("omertest", "Exception : $e")
             }

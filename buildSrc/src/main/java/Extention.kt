@@ -54,3 +54,10 @@ fun DependencyHandler.roomDependencies() {
     testImplementation("androidx.room:room-testing:${Versions.room}") // optional - Test helpers
 }
 
+fun DependencyHandler.jacksonDependencies() {
+    implementation("com.fasterxml.jackson.core:jackson-core:2.13.2")
+    implementation("com.fasterxml.jackson.core:jackson-annotations:2.13.2")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.13.2")
+    implementation("com.squareup.retrofit2:converter-jackson:2.9.0")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.2") // objectMapper.registerKotlinModule()  jacksonObjectMapper kullanabilmek için bu lazım.
+}

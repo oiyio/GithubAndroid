@@ -28,7 +28,7 @@ class ViewModel3 @Inject constructor(
         viewModelScope.launch {
             try {
                 _followerList.value = repository.getFollowers(username = username)
-                Log.d("omertest", "size :" + _followingList.value!!.size.toString())
+                Log.d("omertest", "size1 :" + _followingList.value!!.size.toString())
             } catch (exception: Exception) {
                 Log.d("omertest", "getFollowers - exception ${exception.message}")
             }
@@ -37,7 +37,7 @@ class ViewModel3 @Inject constructor(
         viewModelScope.launch {
             try {
                 _followingList.value = repository.getFollowing(username = username)
-                Log.d("omertest", "size :" + _followingList.value!!.size.toString())
+                Log.d("omertest", "size2 :" + _followingList.value!!.size.toString())
             } catch (exception: Exception) {
                 Log.d("omertest", "getFollowing - exception ${exception.message}")
             }

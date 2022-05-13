@@ -1,16 +1,31 @@
 package com.omeriyioz.data.database
 
 import androidx.room.TypeConverter
-import java.util.Date
+import com.fasterxml.jackson.core.type.TypeReference
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.omeriyioz.data.database.models.Repo
 
-class Converters {
+class ListConverter {
+
+    val objectMapper = jacksonObjectMapper()
+
     @TypeConverter
-    fun fromTimestamp(value: Long?): Date? {
-        return value?.let { Date(it) }
+    fun fromStringToRepoList(json: String?): List<Repo>? {
+        var winnerList: List<Repo>? = null
+        try {
+            winnerList = objectMapper.readValue(
+                json,
+                object : TypeReference<List<Repo>>() {}
+            )
+        } catch (ex: Exception) {
+            // result += "\n\n---------Exception in converting json to User4 : $ex \n---------"
+            winnerList = emptyList()
+        }
+        return winnerList
     }
 
     @TypeConverter
-    fun dateToTimestamp(date: Date?): Long? {
-        return date?.time
+    fun fromListToString(list: List<Repo>?): String {
+        return objectMapper.writeValueAsString(list)
     }
 }
