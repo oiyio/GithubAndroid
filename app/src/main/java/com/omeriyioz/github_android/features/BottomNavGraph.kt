@@ -24,7 +24,10 @@ fun BottomNavGraph(navController: NavHostController, searchedUsername: String) {
     ) {
         composable(route = BottomBarItem.Repo.route) {
             val viewModel1 = hiltViewModel<ViewModel1>()
-            RepoScreen(viewModel1, searchedUsername)
+            RepoScreen(
+                viewModel1,
+                searchClicked = viewModel1.getRepoDTOList(searchedUsername)/*searchedUsername*/
+            )
         }
         composable(route = BottomBarItem.User.route) {
             val viewModel2 = hiltViewModel<ViewModel2>()

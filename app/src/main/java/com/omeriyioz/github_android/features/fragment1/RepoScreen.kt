@@ -19,10 +19,11 @@ import com.omeriyioz.github_android.features.centerTextHorizontallyModifier
 @Composable
 fun RepoScreen(
     viewModel1: ViewModel1,
-    searchedUsername: String
+    searchClicked: (String) -> Unit
+    /*searchedUsername: String*/
 ) {
     val repoDTOListState by viewModel1.repoDTOList.observeAsState(initial = emptyList())
-    viewModel1.getRepoDTOList(searchedUsername)
+    // viewModel1.getRepoDTOList(searchedUsername,searchClicked = viewModel1::getRepoDTOList) // 2 kere çağırılıyor. bunu burda çağırmamak lazım.
 
     Column(modifier = Modifier.fillMaxSize()) {
 
