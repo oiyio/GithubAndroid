@@ -39,6 +39,7 @@ fun MainScreen() {
     ) {
         val mainViewModel = hiltViewModel<MainViewModel>()
         val searchedUsername by mainViewModel.searchedUsername.observeAsState(initial = "")
+        // STATE DEĞİŞİNCE viewModel1.getRepoDTOList çağırıcam ama nerde çağırmalıyım ?
 
         Column(modifier = Modifier.fillMaxSize()) {
             SearchInputBox(onItemComplete = mainViewModel::setSearchedUsername)
